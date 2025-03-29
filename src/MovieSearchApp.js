@@ -27,14 +27,14 @@ function MovieSearchApp() {
   return (
     <div>
       <h1>Movie Search App</h1>
-      <div>
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search for a movie"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} // Update searchTerm state on input change
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button onClick={handleSearch}>Search</button> {/* Search button */}
+        <button onClick={handleSearch}>Search</button>
       </div>
       {loading && <p>Loading...</p>}
       <div className="movie-list">
