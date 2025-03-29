@@ -1,7 +1,7 @@
 /* App container */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
+  font-family: "Arial", sans-serif;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ h1 {
   text-align: center;
   margin-top: 40px;
   font-size: 36px;
-  color: #333;
+  color: red;
 }
 
 /* Search section */
@@ -18,18 +18,20 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
+  width: max-content;
+  background-color: wheat;
+  padding: 15px 25px;
+  margin: 20px auto;
+  border-radius: 50px;
+  border: solid 5px skyblue;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .search-container input {
   padding: 10px 15px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid black;
+  border-radius: 40px;
   margin-right: 10px;
   width: 300px;
   outline: none;
@@ -37,9 +39,10 @@ h1 {
 
 .search-container button {
   padding: 10px 20px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
+  background-color: #007bff;
+  color: pink;
+  font-weight: 900;
+  border: double 2px black;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
@@ -54,13 +57,13 @@ h1 {
 p {
   text-align: center;
   font-size: 18px;
-  color: #555;
+  color: blue;
 }
 
 /* Movie list container */
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid with cards */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px; /* Space between the cards */
   justify-content: center;
   margin-top: 40px;
@@ -69,18 +72,14 @@ p {
 
 /* Movie card style */
 .movie-card {
-  background-color: #f8d7da; /* Change card color to a soft red */
-  width: 100%;
+  background-color: #f8d7da; /* Soft red card background */
+  width: 90%; /* Each card takes full column width */
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin-bottom: 20px; /* Space below each card */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  display: flex; /* Arrange image & text side by side */
+  align-items: center; /* Align items in the center */
   height: 400px; /* Set a fixed height for the card */
-  text-align: center; /* Center the text inside the card */
 }
 
 .movie-card:hover {
@@ -89,25 +88,85 @@ p {
 }
 
 .movie-card img {
-  width: 100%;
-  height: 250px; /* Make the image slightly smaller */
-  object-fit: cover;
+  width: 50%;
+  height: 90%;
+  object-fit: contain;
 }
+
 
 .movie-card .movie-info {
-  padding: 15px;
-  flex-grow: 1; /* Allow the content to grow and push the footer down */
-}
-
-.movie-card .movie-info h3 {
-  font-size: 18px;
-  color: #333;
-  margin: 0;
+  background-color: #fff;
+  width: 45%;
+  border-radius: 20px;
   font-weight: bold;
+  padding: 10px;
+  justify-content: center;
+  text-align: center;
+}
+.movie-card .movie-info h2{
+  color: red;
+  font-weight: bolder;
+  border: 2px solid black;
+  border-radius: 80px;
+  background-color: black;
+  font-size: 25px;
+  text-decoration:underline;
+}
+.movie-card .movie-info p {
+  font-size: 20px;
+  color: purple;
 }
 
-.movie-card .movie-info p {
-  font-size: 14px;
-  color: #777;
-  margin-top: 8px;
+/* Responsive: On small screens, show 1 movie per row */
+@media (max-width: 768px) {
+  .movie-list {
+    grid-template-columns: 1fr; /* Switch to single column */
+  }
+}
+/* Style for the back button */
+.back {
+  position: relative;
+  bottom: 20px; /* Position it 20px from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for exact centering */
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 10%;
+  border-radius: 4px;
+  width: 30%;
+}
+
+.back:hover {
+  background-color: #0056b3;
+}
+
+.movie-details h2 {
+  text-align: center;
+  font-size: 35px;
+  color: red;
+  margin-top: 20px;
+}
+.movie-details p {
+  text-align: center;
+  font-size: 20px;
+  font-style: italic;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.detail-image {
+  display: flex;
+  justify-content: center; /* Centers the image horizontally */
+  align-items: center;     /* Centers the image vertically */
+  text-align: center;      /* Ensures any text within this container is centered */
+}
+
+.detail-image img {
+  object-fit: contain;
+  border-radius: 20px;
+  max-width: 100%;         /* Ensures the image does not overflow */
+  height: auto;            /* Maintains aspect ratio */
 }
